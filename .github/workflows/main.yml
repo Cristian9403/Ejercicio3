@@ -24,3 +24,13 @@ jobs:
       run: docker build . --file Dockerfile --tag cristian9403/calc2:latest
     - name: Docker push
       run: docker push cristian9403/calc2:latest
+    - name: ls -a via ssh
+      uses: fifsky/ssh-action@master
+      with:
+        command: |
+          cd /tmp
+          ls -a
+          echo 'hola' >> file.txt
+        host: 18.220.243.195
+        user: ec2-user
+        key: ${{ secrets.KEYSSH}}
