@@ -22,3 +22,5 @@ jobs:
         docker login -u $DOCKER_USER -p $DOCKER_PASSWORD
     - name: Build the Docker image
       run: docker build . --file Dockerfile --tag cristian9403/calc2:latest
+    - name: Docker push
+      run: docker push cristian9403/calc2:latest
