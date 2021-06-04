@@ -28,9 +28,9 @@ jobs:
       uses: fifsky/ssh-action@master
       with:
         command: |
-          cd /tmp
-          ls -a
-          echo 'hola' >> file.txt
+          docker pull cristian9403/calc2:latest
+          docker run -dit -p 80:80 cristian9403/calc2:latest
+          docker ps
         host: 18.220.243.195
         user: ec2-user
         key: ${{ secrets.KEYSSH}}
